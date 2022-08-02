@@ -6,24 +6,25 @@
 //
 
 #include <iostream>
+#include <cassert>
 #include "Polynomial.h"
 
 unsigned int Polynomial::maxDegree = 0;
-unsigned int Polynomial::getMaxDegree() {return maxDegree;}
+unsigned int Polynomial::getMaxDegree() { return maxDegree; }
 Polynomial::Polynomial(int degree)
 {
     this->degree = degree;
     this->trueDegree = 0;
     this->arr = new double[degree];
-    assert(arr != 0);
+    assert(this->arr != 0);
     for (int i = 0; i < degree; i++)
         this->arr[i] = 0;
 }
-Polynomial::Polynomial(double *arr, int degree)
+Polynomial::Polynomial(double* arr, int degree)
 {
     this->degree = degree;
     this->arr = new double[degree];
-    assert(arr != 0);
+    assert(this->arr != 0);
     this->arr = arr;
     this->trueDegree = setDegree(this->arr, degree);
 }
@@ -64,7 +65,7 @@ void Polynomial::print() const
         cout << endl;
     }
 }
-int Polynomial::setDegree(double *arr, int degree)
+int Polynomial::setDegree(double* arr, int degree)
 {
     int trueDegree = 0;
     for (int i = 0; i < degree; i++)
